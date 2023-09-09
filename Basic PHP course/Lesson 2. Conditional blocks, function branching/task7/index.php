@@ -56,5 +56,3 @@ switch ($minutes) {
     echo $minutes . ' минут ';
     break;
 }
-
-echo $minutes;
