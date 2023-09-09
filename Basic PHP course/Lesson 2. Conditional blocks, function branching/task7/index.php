@@ -32,6 +32,9 @@ switch ($hours) {
 switch ($minutes) {
   case 1:
   case 21:
+  case 31:
+  case 41:
+  case 51:
     echo $minutes . ' минута ';
     break;
   case 2:
