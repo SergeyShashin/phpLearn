@@ -32,7 +32,7 @@ foreach ($order as $l1 => $l2) {
       } else {
         echo $town . ", ";
       }
-    };  
+    };
   }
   echo "\n\n";
 }
