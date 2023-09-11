@@ -20,15 +20,15 @@ $order = [
   ]
 ];
 
-foreach ($order as $v1 => $v2) {
-  echo $v1 . ":\n";
+foreach ($order as $l1 => $l2) {
+  echo $l1 . ":\n";
   $counter = 0;
-  foreach ($v2 as $town) {
+  foreach ($l2 as $town) {
     $counter++;
-    if ($counter < count($v2)) {
+    if ($counter < count($l2)) {
       echo $town . ", ";
     } else {
-      echo $town . ". ";
+      echo $town . ".";
     }
   }
   echo "\n\n";
