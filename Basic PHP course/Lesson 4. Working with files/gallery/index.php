@@ -21,11 +21,19 @@ $arr = [
   'password' => 12345
 ];
 
-file_put_contents('db.json', json_encode($arr));
-$json = json_decode(file_get_contents('db.json'));
+$file = fopen('temp.txt', 'r+');
 
-print_r($json);
+if (!$file) {
+  echo 'Нет файла с таким именем.';
+} else {
+  $bufer .= '';
+  // while(EOF){
 
+  // }
+  $bufer = fread($file, 1);
+}
+
+print_r($file);
 
 ?>
 
