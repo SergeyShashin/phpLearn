@@ -21,16 +21,18 @@ $arr = [
   'password' => 12345
 ];
 
-$file = fopen('temp.txt', 'r+');
+$file = fopen('temp.txt', 'r');
 
 if (!$file) {
   echo 'Нет файла с таким именем.';
 } else {
-  $bufer .= '';
-  // while(EOF){
+  $buffer = '';
+  while (!feof($file)) {
+    $buffer .= fread($file, 1);
+  }
 
-  // }
-  $bufer = fread($file, 1);
+  print_r($buffer);
+  fclose($file);
 }
 
 print_r($file);
