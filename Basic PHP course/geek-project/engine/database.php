@@ -18,7 +18,7 @@ function getItem($sql)
     $sql
   );
 
-  $row = mysqli_fetch_row($result);
+  $row = mysqli_fetch_assoc($result);
 
   return $row;
 }
@@ -35,7 +35,7 @@ function getItemArray($sql)
 
   $rows = [];
 
-  while ($row = mysqli_fetch_row($result)) {
+  while ($row = mysqli_fetch_assoc($result)) {
     $rows[] = $row;
   }
 
