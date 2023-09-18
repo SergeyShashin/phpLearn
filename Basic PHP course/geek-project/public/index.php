@@ -1,14 +1,14 @@
 <?php
 
-$connection = mysqli_connect(
-  'localhost',
-  'root',
-  'rewq54321',
-  'geek_project'
-);
+require '../engine/database.php';
 
-// $connectionPDO = new PDO('mysql:host=localhost; dbname=geek_project', 'root', 'rewq54321');
+// $users = [];
 
-$print_r($connection);
-// $print_r($connectionPDO);
-phpinfo();
+// print_r(getItem("SELECT * FROM users"));
+print_r(getItemArray("SELECT * FROM `users`"));
+
+
+
+// print_r($users);
+
+// phpinfo();
