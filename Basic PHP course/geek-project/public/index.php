@@ -1,11 +1,21 @@
 <?php
 
+// 1. Создать галерею изображений, состоящую из двух страниц:
+// просмотр всех фотографий (уменьшенных копий);
+// просмотр конкретной фотографии (изображение оригинального размера) по ее ID в базе данных.
+// 2. В базе данных создать таблицу, в которой будет храниться информация о картинках (адрес на сервере, размер, имя).
+// 3. *На странице просмотра фотографии полного размера под картинкой должно быть указано число ее просмотров.
+// 4. *На странице просмотра галереи список фотографий должен быть отсортирован по популярности.
+//  Популярность = число кликов по фотографии.
+
 require '../engine/database.php';
 
 // $image = getItem("SELECT * FROM `images`");
 $names = getItemArray("SELECT name FROM `images`");
+$numberClicks = getItemArray("SELECT number_clicks FROM `images`");
 // execute("INSERT into `images` (`name`, `number_clicks`, `width`, `height`) values ('5.jpg', 0, 0, 0)");
-execute("delete from `images` where (id>4)");
+execute("DELETE from `images` where (id>4)");
+execute("UPDATE `images`set number_clicks=4 where id=1");
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +92,11 @@ execute("delete from `images` where (id>4)");
 <body>
   <div id="gallery">
     <?php for ($i = 0; $i < count($names); $i++) :    ?>
-      <img id="img1" src="img/min/<?php echo $names[$i]['name'] ?>" data-full-img-url="img/max/<?php echo $names[$i]['name'] ?>" alt="img1">
+      <img id="<?= $i ?>" src="img/min/<?php echo $names[$i]['name'] ?>"
+       data-full-img-url="img/max/<?php echo $names[$i]['name'] ?>" 
+       data-views="<?= $numberClicks[$i]['number_clicks'] ?>" 
+       alt="img<?= $i ?>">
+      <p id="veiws<?= $i ?>">Просмотров <?php echo $numberClicks[$i]['number_clicks'] ?></p>
     <?php endfor; ?>
   </div>
   <script src="js/gallery.js"></script>

@@ -45,6 +45,18 @@ const gallery = {
     img.onerror = () => this.openBigImage(this.settings.pathToImgNothing);
     img.src = src;
 
+    this.incrementQuantityClicks(event);
+
+  },
+
+  /**
+   * Увеличивает число просмотров у картинки, по которой был клик и у тега <p> c соответстующим id
+   * @param {*} event 
+   */
+  incrementQuantityClicks(event) {
+    Number(event.target.dataset.views++);
+    let pId = "veiws" + event.target.id;
+    document.getElementById(pId).textContent = `Просмотров ${event.target.dataset.views++}`;
   },
 
   openBigImage(src) {
@@ -100,7 +112,7 @@ const gallery = {
       img.onload = () => this.openBigImage(this.previousElementSibling.dataset.fullImgUrl);
       img.onerror = () => this.openBigImage(this.settings.pathToImgNothing);
       img.src = this.previousElementSibling.dataset.fullImgUrl;
-      
+
       // this.openBigImage(this.previousElementSibling.dataset.fullImgUrl);
     }
     this.curentElement = this.previousElementSibling;
