@@ -10,12 +10,15 @@
 
 require '../engine/database.php';
 
-// $image = getItem("SELECT * FROM `images`");
-$names = getItemArray("SELECT name FROM `images`");
-$numberClicks = getItemArray("SELECT number_clicks FROM `images`");
-// execute("INSERT into `images` (`name`, `number_clicks`, `width`, `height`) values ('5.jpg', 0, 0, 0)");
-execute("DELETE from `images` where (id>4)");
-execute("UPDATE `images`set number_clicks=4 where id=1");
+$images=getItemArray("SELECT * from images ORDER BY number_clicks DESC;");
+
+// execute("INSERT into `images` (`name`, `number_clicks`, `width`, `height`) values ('1.jpg', 0, 0, 0)");
+// execute("INSERT into `images` (`name`, `number_clicks`, `width`, `height`) values ('2.jpg', 0, 0, 0)");
+// execute("INSERT into `images` (`name`, `number_clicks`, `width`, `height`) values ('3.jpg', 0, 0, 0)");
+// execute("INSERT into `images` (`name`, `number_clicks`, `width`, `height`) values ('4.jpg', 0, 0, 0)");
+// execute("DELETE from `images` where (id>4)");
+// execute("UPDATE `images`set number_clicks=4 where id=1");
+
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +27,13 @@ execute("UPDATE `images`set number_clicks=4 where id=1");
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery</title>
   <style>
     body {
       margin: 0;
     }
 
     #gallery {
+      display: flex;
       text-align: center;
       margin-top: 1%;
     }
@@ -91,12 +94,14 @@ execute("UPDATE `images`set number_clicks=4 where id=1");
 
 <body>
   <div id="gallery">
-    <?php for ($i = 0; $i < count($names); $i++) :    ?>
-      <img id="<?= $i ?>" src="img/min/<?php echo $names[$i]['name'] ?>"
-       data-full-img-url="img/max/<?php echo $names[$i]['name'] ?>" 
-       data-views="<?= $numberClicks[$i]['number_clicks'] ?>" 
+    <?php for ($i = 0; $i < count($images); $i++) :    ?>
+      <ul>
+      <img id="<?= $images[$i]['id'] ?>" src="img/min/<?php echo $images[$i]['name'] ?>"
+       data-full-img-url="img/max/<?php echo $images[$i]['name'] ?>" 
+       data-views="<?= $images[$i]['number_clicks'] ?>" 
        alt="img<?= $i ?>">
-      <p id="veiws<?= $i ?>">Просмотров <?php echo $numberClicks[$i]['number_clicks'] ?></p>
+      <p id="veiws<?= $images[$i]['id'] ?>">Просмотров <?php echo $images[$i]['number_clicks'] ?></p>
+      </ul>
     <?php endfor; ?>
   </div>
   <script src="js/gallery.js"></script>
