@@ -41,3 +41,13 @@ function getItemArray($sql)
 
   return $rows;
 }
+
+function execute($sql)
+{
+  global $connection;
+
+  mysqli_query(
+    $connection,
+    $sql
+  );
+}
