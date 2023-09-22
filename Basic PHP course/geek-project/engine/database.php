@@ -18,9 +18,7 @@ function getItem($sql)
     $sql
   );
 
-  $row = mysqli_fetch_assoc($result);
-
-  return $row;
+  return mysqli_fetch_assoc($result);
 }
 
 
@@ -46,8 +44,5 @@ function execute($sql)
 {
   global $connection;
 
-  mysqli_query(
-    $connection,
-    $sql
-  );
+  return mysqli_query($connection, $sql);
 }
