@@ -8,11 +8,12 @@ return [
 
     'assets' => [
       'css' => [
-        // '/css/bootstrap.min.css',
+        '/css/bootstrap.min.css',
         '\css\style.css',
       ],
       'js' => [
         '\js\gallery.js',
+        '/js/bootstrap.bundle.min.js',
       ],
     ],
 
