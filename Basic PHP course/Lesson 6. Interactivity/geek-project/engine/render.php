@@ -13,11 +13,13 @@ function render($template, $data = [], $withLayout = true, $layout = 'layout')
   global $config;
 
   $templates = [
-    'layuot' => "{$config['app']['templatesPath']}/{$layout}.php",
-    'page' => "{$config['app']['templatesPath']}/{$template}.php",
+    // 'layuot' => "{$config['app']['templatesPath']}\{$layout}.php",
+    // 'page' => "{$config['app']['templatesPath']}\{$template}.php"
+    'layout' => $config['app']['templatesPath']."/".$layout.".php",
+    'page' => $config['app']['templatesPath']."/".$template.".php"
   ];
 
-  $data[$config] = $config['app'];
+  $data['config'] = $config['app'];
 
   $pageView = getTemplateContent($templates['page'], $data);
 
@@ -27,21 +29,22 @@ function render($template, $data = [], $withLayout = true, $layout = 'layout')
   } else {
     return $pageView;
   }
+}
 
-  /**
-   * @param string $filePath Путь к шаблону
-   * @param array $data Массив данных для обработки
-   * 
-   * @return string HTML-код готового шаблона
-   * */
-  function getTemplateContent($filePath, $data)
-  {
-    ob_start();
+/**
+ * @param string $filePath Путь к шаблону
+ * @param array $data Массив данных для обработки
+ * 
+ * @return string HTML-код готового шаблона
+ * */
+function getTemplateContent($filepath, $data)
+{
 
-    extract($data);
+  ob_start();
 
-    include $filePath;
+  extract($data);
 
-    return ob_end_clean();
-  }
+  include $filepath;
+
+  return ob_get_clean();
 }

@@ -1,6 +1,6 @@
 <?php
 
-require '../config/main.php';
+// require '../config/main.php';
 
 $connection = mysqli_connect(
   $config['db']['host'],

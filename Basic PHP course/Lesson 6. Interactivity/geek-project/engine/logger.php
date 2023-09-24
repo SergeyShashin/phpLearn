@@ -5,10 +5,10 @@ function systemlog($message, $type = 'info')
   global $config;
 
   $type = mb_strtolower($type);
-  $logPath = $config['app']['logPath'] . "/{type}.log";
+  $logPath = $config['app']['logPath'] . "/" . $type . ".log";
 
   if (!is_string($message)) {
-    $message = print_r(($message), true);
+    $message = print_r($message, true);
   }
 
   $output = "[" . date('Y-m-d H:i:s') . "]" . mb_strtoupper($type) . ":" . $message . "\n";
