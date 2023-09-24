@@ -8,9 +8,10 @@
 // 4. *На странице просмотра галереи список фотографий должен быть отсортирован по популярности.
 //  Популярность = число кликов по фотографии.
 
-require '../engine/database.php';
+require '../config/main.php';
+require '../engine/core.php';
 
-$images=getItemArray("SELECT * from images ORDER BY number_clicks DESC;");
+$images = getItemArray("SELECT * from images ORDER BY number_clicks DESC;");
 
 // execute("INSERT into `images` (`name`, `number_clicks`, `width`, `height`) values ('1.jpg', 0, 0, 0)");
 // execute("INSERT into `images` (`name`, `number_clicks`, `width`, `height`) values ('2.jpg', 0, 0, 0)");
@@ -18,6 +19,10 @@ $images=getItemArray("SELECT * from images ORDER BY number_clicks DESC;");
 // execute("INSERT into `images` (`name`, `number_clicks`, `width`, `height`) values ('4.jpg', 0, 0, 0)");
 // execute("DELETE from `images` where (id>4)");
 // execute("UPDATE `images`set number_clicks=4 where id=1");
+
+$message = 'Hello from index.php';
+
+echo render('site/example', ['message' => $message]);
 
 ?>
 
@@ -96,11 +101,8 @@ $images=getItemArray("SELECT * from images ORDER BY number_clicks DESC;");
   <div id="gallery">
     <?php for ($i = 0; $i < count($images); $i++) :    ?>
       <ul>
-      <img id="<?= $images[$i]['id'] ?>" src="img/min/<?php echo $images[$i]['name'] ?>"
-       data-full-img-url="img/max/<?php echo $images[$i]['name'] ?>" 
-       data-views="<?= $images[$i]['number_clicks'] ?>" 
-       alt="img<?= $i ?>">
-      <p id="veiws<?= $images[$i]['id'] ?>">Просмотров <?php echo $images[$i]['number_clicks'] ?></p>
+        <img id="<?= $images[$i]['id'] ?>" src="img/min/<?php echo $images[$i]['name'] ?>" data-full-img-url="img/max/<?php echo $images[$i]['name'] ?>" data-views="<?= $images[$i]['number_clicks'] ?>" alt="img<?= $i ?>">
+        <p id="veiws<?= $images[$i]['id'] ?>">Просмотров <?php echo $images[$i]['number_clicks'] ?></p>
       </ul>
     <?php endfor; ?>
   </div>
