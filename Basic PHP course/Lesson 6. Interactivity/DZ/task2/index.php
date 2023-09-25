@@ -57,24 +57,38 @@ function mathOperation($arg1, $arg2, $operation)
         <input type="number" name="number1" id="number1" class="border border-success p-2 border-opacity-10" required />
       </div>
       <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
-      <input type="button"  class="btn btn-primary" value="+" name="sum"/>
-      <input type="button"  class="btn btn-primary" value="-" name="-"/>
-      <input type="button"  class="btn btn-primary" value="*" name="*"/>
-      <input type="button"  class="btn btn-primary" value="/" name="/"/>
-      </div>
-      <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
         <label for="number2" class="form-label">Введите число2</label>
         <input type="number" name="number2" id="number2" class="border border-success p-2 border-opacity-10" required />
       </div>
+      <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <input type="submit" class="btn btn-primary" value="+" name="+" />
+        <input type="submit" class="btn btn-primary" value="-" name="-" />
+        <input type="submit" class="btn btn-primary" value="*" name="*" />
+        <input type="submit" class="btn btn-primary" value="/" name="/" />
+      </div>
 
-      <input type="submit" class="btn btn-primary" value="Посмотреть результат" />
   </div>
   </form>
 
   <?php if ($_POST) : ?>
     <?php
-    var_dump($_POST);
-    $result = mathOperation(intval($_POST['number1']), intval($_POST['number2']), $_POST['operation']);
+    $operation = '';
+
+    if ($_POST['+']) {
+      $operation = '+';
+    }
+    if ($_POST['-']) {
+      $operation = '-';
+    }
+    if ($_POST['*']) {
+      $operation = '*';
+    }
+    if ($_POST['/']) {
+      $operation = '/';
+    }
+
+    $result = mathOperation(intval($_POST['number1']), intval($_POST['number2']), $operation);
+
     ?>
     <h3 class="shadow p-3 mb-5 bg-body-tertiary rounded">Результат <?= $result ?></h3>
   <?php endif; ?>
