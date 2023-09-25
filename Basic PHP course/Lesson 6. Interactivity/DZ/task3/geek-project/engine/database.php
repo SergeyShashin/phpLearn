@@ -44,5 +44,5 @@ function execute($sql)
 {
   global $connection;
 
-  return mysqli_query($connection, $sql);
+  mysqli_query($connection, $sql);
 }
