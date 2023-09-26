@@ -8,15 +8,15 @@
  * 
  * @return string HTML-код готового шаблона
  */
-function render($template, $data = [], $withLayout = true, $layout = 'layout')
+function render($template, $data = [], $withLayout = true, $layout = 'main')
 {
   global $config;
 
   $templates = [
     // 'layuot' => "{$config['app']['templatesPath']}\{$layout}.php",
     // 'page' => "{$config['app']['templatesPath']}\{$template}.php"
-    'layout' => $config['app']['templatesPath']."/layouts".$layout.".php",
-    'page' => $config['app']['templatesPath']."/layouts".$template.".php"
+    'layout' => $config['app']['templatesPath']."/"."layouts/".$layout.".php",
+    'page' => $config['app']['templatesPath']."/".$template.".php"
   ];
 
   $data['config'] = $config['app'];

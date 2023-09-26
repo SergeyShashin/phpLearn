@@ -4,6 +4,6 @@ return [
     'host' => 'localhost',
     'user' => 'root',
     'password' => 'rewq54321',
-    'database'=>'reviews'
+    'database'=>'geek_project'
   ]
 ];

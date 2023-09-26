@@ -12,7 +12,6 @@ return [
         '\css\style.css',
       ],
       'js' => [
-        '\js\gallery.js',
         '/js/bootstrap.bundle.min.js',
       ],
     ],
