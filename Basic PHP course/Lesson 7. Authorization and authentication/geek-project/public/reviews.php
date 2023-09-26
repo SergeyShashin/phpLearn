@@ -3,37 +3,49 @@
 require '..\config\main.php';
 require '..\engine\core.php';
 
-showReviews();
-addReviews();
-
-if (isset($_GET['delete'])) {
-  deleteReview();
+if (isset($_GET['action'])) {
+  $action = $_GET['action'];
+} else {
+  $action = 'list';
 }
 
-function showReviews()
+switch ($action) {
+  case 'list':
+    getComments();
+    break;
+  case 'add':
+    addComment();
+    break;
+  case 'delete';
+    deleteComment();
+  default:
+    render('site\error');
+}
+
+// addComment();
+
+function getComments()
 {
   $reviews = getItemArray('SELECT * FROM `reviews`');
 
-  echo render('reviews\list', $reviews);
+  echo render('reviews\list', ['reviews' => $reviews]);
 }
 
-function addReviews()
+function addComment()
 {
-  $review = $_POST['content'];
-  $sql = "'" . $review . "'";
-  echo render('reviews\add', [], false);
+  echo render('reviews\add');
 
-  if (isset($review)) {
+  if (isset($_POST['add_comment'])) {
+
+    $sql = "'" . htmlspecialchars($_POST['content']) . "'";
     execute("INSERT into `reviews` (`content`) values ($sql)");
     header('Location: \reviews.php');
   }
 }
 
-function deleteReview()
+function deleteComment()
 {
   $id = intval($_GET['id']);
   execute("DELETE from `reviews` WHERE (id=$id)");
   header('Location: \reviews.php');
 }
-
-

@@ -1,19 +1,19 @@
 <h1>Комментарии</h1>
 
 
-<?php if (isset($data)) : ?>
-  <?php foreach ($data as $value) : ?>
-    <?php if ($value['id'] > 0) : ?>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"><?= $value['id'] ?></h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary"><?= $value['date'] ?></h6>
-          <p class="card-text"><?= $value['content'] ?></p>
-          <a href="?delete&id=<?= $value['id'] ?>}" class="card-link">Удалить</a>
-        </div>
+<?php if (count($reviews)>0) : ?>
+  <?php foreach ($reviews as $review) : ?>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><?= $review['id'] ?></h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary"><?= $review['date'] ?></h6>
+        <p class="card-text"><?= $review['content'] ?></p>
+        <a href="reviews.php?action=delete&id=<?= $review['id'] ?>}" class="card-link">Удалить</a>
       </div>
-    <?php endif; ?>
+    </div>
   <?php endforeach; ?>
 <?php else : ?>
-  <h2>Комментарии отсутствуют...</h2>
+  <em>Комментарии отсутствуют...</em>
 <?php endif; ?>
+
+<a class="btn btn-primary mt-5" href="reviews.php?action=add">Добавить комментарий</a>
