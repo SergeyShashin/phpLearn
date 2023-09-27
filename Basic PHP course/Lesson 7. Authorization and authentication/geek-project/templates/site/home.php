@@ -1,8 +1,8 @@
 <?php
-$titel = 'Главная страница'
+$title = 'Главная страница';
 ?>
 
-<h1><?= $titel ?></h1>
+<h1><?= $title ?></h1>
 
 <p>
   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure unde optio ea ducimus recusandae neque,
