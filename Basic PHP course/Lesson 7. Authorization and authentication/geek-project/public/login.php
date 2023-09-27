@@ -11,11 +11,11 @@ if(isset($_POST['signIn'])){
 
 function addUser(){
   if(isset($_POST['login']) && isset($_POST['password'])){
-    $userLogin = $_POST['login'];
-    $userPassword = $_POST['password'];
+    $userLogin = "'" .$_POST['login']."'" ;
+    $userPassword = "'" .$_POST['password']."'";
 
-    execute("INSERT into `users` (`login`, `password` ) values ($userLogin, $userPassword)");
+    execute("INSERT into `users` (`login`, `password` ) values ($userLogin, $userPassword);");
 
-    header('Location: users/userPage.php');
+    header('Location: index.php');
   }
 }
