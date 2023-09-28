@@ -3,7 +3,7 @@
 require '..\config\main.php';
 require '..\engine\core.php';
 
-echo render('users/signIn');
+echo render('user/signIn');
 
 if(isset($_POST['signIn'])){
   addUser();

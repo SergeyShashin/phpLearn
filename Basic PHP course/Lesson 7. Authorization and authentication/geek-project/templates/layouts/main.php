@@ -3,7 +3,7 @@
 $items = [
   ['url' => '/', 'label' => 'Home'],
   ['url' => '/reviews.php', 'label' => 'Reviews'],
-  ['url' => '/login.php', 'label' => 'Sign In'],
+  ['url' => '/user.php', 'label' => 'Sign In'],
 ]
 
 ?>
