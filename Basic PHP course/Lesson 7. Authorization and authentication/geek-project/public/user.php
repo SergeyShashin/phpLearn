@@ -16,6 +16,8 @@ function addUser(){
 
     execute("INSERT into `users` (`login`, `password` ) values ($userLogin, $userPassword);");
 
+    loginUser($_POST['login']);
+
     header('Location: index.php');
   }
 }
