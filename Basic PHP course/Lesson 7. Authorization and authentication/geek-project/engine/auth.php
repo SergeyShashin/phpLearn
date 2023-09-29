@@ -9,9 +9,11 @@ function loginUser($login, $remember = false)
 {
   $_SESSION['auth']['login'] = $login;
 
-  if ($login == 'admin') {
+  $passwordAdmin = intval(execute("SELECT `password` FROM `users` WHERE login='admin';"));
+
+  if ($login == 'admin' && $passwordAdmin == 123123) {
     $_SESSION['auth']['admin'] = true;
-  }
+  } 
 
   if ($remember) {
     $auth = [['login'] => $_SESSION['auth']['login']];
@@ -34,7 +36,7 @@ function autoLogin()
 {
   if (isset($_COOKIE['auth'])) {
     $auth = json_decode($_COOKIE['auth'], true);
-    
+
     loginUser($auth['login'], true);
   }
 }

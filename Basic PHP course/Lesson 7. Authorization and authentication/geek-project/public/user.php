@@ -5,19 +5,21 @@ require '..\engine\core.php';
 
 echo render('user/signIn');
 
-if(isset($_POST['signIn'])){
+if (isset($_POST['signIn']) && isset($_POST['login']) && isset($_POST['password'])) {
   addUser();
 }
 
-function addUser(){
-  if(isset($_POST['login']) && isset($_POST['password'])){
-    $userLogin = "'" .$_POST['login']."'" ;
-    $userPassword = "'" .$_POST['password']."'";
+function addUser()
+{
+  $userLogin = "'" . $_POST['login'] . "'";
+  $userPassword = "'" . $_POST['password'] . "'";
 
-    execute("INSERT into `users` (`login`, `password` ) values ($userLogin, $userPassword);");
+  $answer = execute("INSERT into `users` (`login`, `password` ) values ($userLogin, $userPassword);");
 
+  if ($answer) {
     loginUser($_POST['login']);
-
     header('Location: index.php');
+  } else {
+    echo render('site/error');
   }
 }

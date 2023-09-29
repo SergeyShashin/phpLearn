@@ -44,7 +44,7 @@ function execute($sql)
 {
   global $connection;
 
-  print_r($sql);
+  $result = mysqli_query($connection, $sql);
 
-  return mysqli_query($connection, $sql);
+  return $result;
 }
