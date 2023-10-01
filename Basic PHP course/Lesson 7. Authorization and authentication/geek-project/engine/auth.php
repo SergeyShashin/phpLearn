@@ -13,7 +13,7 @@ function loginUser($login, $remember = false)
 
   if ($login == 'admin' && $passwordAdmin == 123123) {
     $_SESSION['auth']['admin'] = true;
-  } 
+  }
 
   if ($remember) {
     $auth = [['login'] => $_SESSION['auth']['login']];
@@ -38,8 +38,16 @@ function autoLogin()
     $auth = json_decode($_COOKIE['auth'], true);
 
     loginUser($auth['login'], true);
+    welcomeUser($auth['login']);
   }
 }
+
+function welcomeUser($login)
+{
+  echo render('user/personalAccount', $login);
+  header('Location: user/personalAccount.php');
+}
+
 
 function setCook($key, $value)
 {

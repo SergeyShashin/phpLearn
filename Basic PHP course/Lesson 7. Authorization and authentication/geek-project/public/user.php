@@ -18,7 +18,8 @@ function addUser()
 
   if ($answer) {
     loginUser($_POST['login']);
-    header('Location: index.php');
+    welcomeUser($_SESSION['auth']['login']);
+    header('Location: user/personalAccount.php');
   } else {
     echo render('site/error');
   }
