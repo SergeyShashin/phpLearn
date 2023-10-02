@@ -5,7 +5,7 @@ require '..\engine\core.php';
 
 //выводим список БД
 function routeIndex()
-{
+{  
   $items = getItemArray('SELECT * FROM `reviews`');
 
   echo render('reviews\list', ['items' => $items]);
@@ -38,7 +38,7 @@ function routeAdd()
 //удалить
 function routeDelete()
 {
-  if (!isLoggedUser()) {
+  if (!isAdmin()) {
     header('Location: \reviews.php');
   } else {
     $id = 0;

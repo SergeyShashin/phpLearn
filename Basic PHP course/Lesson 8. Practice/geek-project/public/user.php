@@ -1,7 +1,23 @@
 <?php
 
-require '..\config\main.php';
 require '..\engine\core.php';
+
+function routeIndex()
+{
+  routeLogin();
+}
+
+//страница с формой входа
+function routeLogin()
+{
+  //редирект, если авторизован
+  if (isLoggedUser()) {
+    header('Location: \user.php?action=home');
+  }
+
+  //проверка данных из формы
+  
+}
 
 echo render('user/signIn');
 
