@@ -12,7 +12,10 @@ return [
         '\css\style.css',
       ],
       'js' => [
-        '/js/bootstrap.bundle.min.js',
+        '/js/vendor/bootstrap.bundle.min.js',
+        '/js/vendor/jquery-3.7.1.js',
+        '/js/app.js',
+        '/js/request.js',
       ],
     ],
 
