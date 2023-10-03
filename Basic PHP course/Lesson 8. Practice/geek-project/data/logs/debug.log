@@ -5,3 +5,10 @@
     [signIn] => 
 )
 
+[2023-10-03 18:46:00]DEBUG:Array
+(
+    [login] => admin
+    [password] => 123
+    [signIn] => 
+)
+

@@ -15,8 +15,8 @@ function render($template, $data = [], $withLayout = true, $layout = 'main')
   $templates = [
     // 'layuot' => "{$config['app']['templatesPath']}\{$layout}.php",
     // 'page' => "{$config['app']['templatesPath']}\{$template}.php"
-    'layout' => $config['app']['templatesPath']."/"."layouts/".$layout.".php",
-    'page' => $config['app']['templatesPath']."/".$template.".php"
+    'layout' => $config['app']['templatesPath'] . "/" . "layouts/" . $layout . ".php",
+    'page' => $config['app']['templatesPath'] . "/" . $template . ".php"
   ];
 
   $data['config'] = $config['app'];
@@ -47,4 +47,13 @@ function getTemplateContent($filepath, $data)
   include $filepath;
 
   return ob_get_clean();
+}
+
+/**
+ * Функция вывода JSON в ответ на AJAX-запрос
+ */
+function renderJson($data)
+{
+  header('Content-type: application/json');
+  echo json_encode($data);
 }

@@ -1,4 +1,26 @@
-$(document).ready(function(){
+$(document).ready(function () {
   console.log('Request.js [LOADED]');
-  console.dir($);
+
+  $('#btn-simple').on('click', function () {
+    $.get(
+      '/ajax.php',
+      function (response, status) {
+        console.log(status);
+        console.log(response);
+      }
+    );
+
+  });
+
+  $('#btn-jsonitem').on('click', function () {
+    $.get(
+      '/ajax.php?action=jsonitem',
+      function (response, status) {
+        console.log(status);
+        console.log(response);
+      }
+    );
+
+  });
+
 })
