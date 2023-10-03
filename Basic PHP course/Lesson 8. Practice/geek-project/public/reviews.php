@@ -55,6 +55,5 @@ function routeDelete()
   }
 }
 
-
 //запуск маршрутизации
 route();

@@ -1,4 +1,4 @@
-<h1><?php echo "Добро пожаловать" . $login ?></h1>
+<h1><?php echo "Добро пожаловать" ?></h1>
 
 <p>
   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure unde optio ea ducimus recusandae neque,
