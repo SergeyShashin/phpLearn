@@ -1,11 +1,11 @@
-<h1>Название товара</h1>
+<h1>Название товара: <?= $props['name'] ?></h1>
 
-<p>Описание</p>
+<p>Описание: <?= $props['description'] ?></p>
 
-<p>Цена</p>
+<p>Цена: <?= $props['price'] ?></p>
 
-<p>Количество </p>
+<p>Количество: <?= $props['quantity'] ?> </p>
 
 <p>
-  <button class="btn btn-info" id="add-product">Добавить в корзину</button>
+  <button class="btn btn-info" id="add-product" data-id="<?= $props['id'] ?>">Добавить в корзину</button>
 </p>

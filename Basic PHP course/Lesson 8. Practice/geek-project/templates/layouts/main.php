@@ -2,7 +2,6 @@
 
 $items = [
   ['url' => '/', 'label' => 'Home'],
-  ['url' => '/goods.php', 'label' => 'Goods'],
   ['url' => '/reviews.php', 'label' => 'Reviews'],
   ['url' => '/category.php', 'label' => 'Каталог'],
   ['url' => '/ajax.php', 'label' => 'Ajax'],
