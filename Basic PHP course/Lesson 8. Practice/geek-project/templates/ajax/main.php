@@ -1,9 +1,9 @@
 <?php
 ?>
 
-<div class="container">
+<div class="row">
 
-  <section>
+  <section class="col-6">
     <h2>Пример Get</h2>
     <ul>
       <li>URL: /ajax.php</li>
@@ -12,7 +12,7 @@
       <button id='btn-simple' class="btn btn-primary">Execute</button>
     </ul>
   </section>
-  <section>
+  <section class="col-6">
     <h2>Пример GET</h2>
     <ul>
       <li>URL: /ajax.php?action=jsonitem</li>
@@ -22,7 +22,7 @@
     </ul>
   </section>
   <hr>
-  <section>
+  <section class="col-6">
     <h2>Пример POST</h2>
     <ul>
       <li>URL: /ajax.php?action=input</li>
@@ -31,7 +31,7 @@
       <button id='btn-input' class="btn btn-primary">Execute</button>
     </ul>
   </section>
-  <section>
+  <section class="col-6">
     <h2>Пример POST</h2>
     <ul>
       <li>URL: /ajax.php?action=object</li>
