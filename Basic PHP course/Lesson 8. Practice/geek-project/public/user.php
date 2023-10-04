@@ -43,25 +43,28 @@ function routeHome()
   echo render('user/home');
 }
 
+function routeRegister()
+{
+  //грузим из POST
+  if (isset($_POST['reg_user'])) {
+    $login = $_POST['login'];
+    $password = $_POST['password'];
 
-// if (isset($_POST['signIn']) && isset($_POST['login']) && isset($_POST['password'])) {
-//   addUser();
-// }
+    //хешируем пароль
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
-// function addUser()
-// {
-//   $userLogin = "'" . $_POST['login'] . "'";
-//   $userPassword = "'" . $_POST['password'] . "'";
+    //готовим запрос
+    $sql = "INSERT into users (login, password) values ('{$login}', '{$password})";
 
-//   $answer = execute("INSERT into `users` (`login`, `password` ) values ($userLogin, $userPassword);");
+    if (execute($sql)) {
+      //авторизуем
+      loginUser($login, true);
+      header('Location: /user.php?action=home.php');
+    }
+  }
 
-//   if ($answer) {
-//     loginUser($_POST['login']);
-//     welcomeUser($_SESSION['auth']['login']);
-//     header('Location: user/personalAccount.php');
-//   } else {
-//     echo render('site/error');
-//   }
-// }
+  echo render('user/register');
+}
+
 
 route();

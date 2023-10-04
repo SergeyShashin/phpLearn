@@ -1,3 +1,5 @@
+<h1>Регистрация</h1>
+
 <div class="container col-3">
   <form method="post">
     <div class="mb-3">
@@ -8,11 +10,7 @@
       <label for="exampleInputPassword1" class="form-label" require>Password</label>
       <input type="password" class="form-control" id="exampleInputPassword1" name='password'>
     </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" name='remember'>
-      <label class="form-check-label" for="exampleCheck1">Remember me</label>
-    </div>
-    <button type="submit" class="btn btn-primary" name="signIn">Sign In</button>
-    <a href="/user.php?action=register" class="btn btn-primary">Registration</a>
+    
+    <button type="submit" class="btn btn-primary" name="reg_user">Continue</button>
   </form>
 </div>
