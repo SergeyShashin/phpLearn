@@ -24,8 +24,9 @@ $(document).ready(function () {
   });
 
   $('#btn-input').on('click', function () {
-    $.get(
+    $.post(
       '/ajax.php?action=input',
+      { message: 'hello-from-ajax' },
       function (response, status) {
         console.log(status);
         console.log(response);
@@ -34,8 +35,14 @@ $(document).ready(function () {
 
   });
   $('#btn-object').on('click', function () {
-    $.get(
+    let user = {
+      login: 'Ivan',
+      password: 123123
+    }
+    
+    $.post(
       '/ajax.php?action=object',
+      { user: user },
       function (response, status) {
         console.log(status);
         console.log(response);
