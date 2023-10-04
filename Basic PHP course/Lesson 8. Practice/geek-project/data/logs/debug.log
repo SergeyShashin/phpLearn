@@ -19,3 +19,17 @@
     [signIn] => 
 )
 
+[2023-10-04 13:21:51]DEBUG:Array
+(
+    [login] => qp
+    [password] => 10
+    [signIn] => 
+)
+
+[2023-10-04 13:50:25]DEBUG:Array
+(
+    [login] => admin
+    [password] => 123123
+    [signIn] => 
+)
+

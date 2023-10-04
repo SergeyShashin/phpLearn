@@ -7,7 +7,7 @@ $items = [
   ['url' => '/category.php', 'label' => 'Каталог'],
   ['url' => '/ajax.php', 'label' => 'Ajax'],
   ['url' => '/user.php', 'label' => 'Sign In'],
-  ['url' => '/exit.php', 'label' => 'Sign Out'],
+  ['url' => '/user.php?action=logout', 'label' => 'Sign Out'],
 ]
 
 ?>

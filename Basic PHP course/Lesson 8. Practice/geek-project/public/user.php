@@ -54,12 +54,14 @@ function routeRegister()
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     //готовим запрос
-    $sql = "INSERT into users (login, password) values ('{$login}', '{$password})";
+    $sql = "INSERT into users (login, password) values ('{$login}', '{$password}')";
+
 
     if (execute($sql)) {
       //авторизуем
-      loginUser($login, true);
-      header('Location: /user.php?action=home.php');
+
+      loginUser($login);
+      header('Location: /user.php?action=home');
     }
   }
 
