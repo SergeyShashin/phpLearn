@@ -12,3 +12,10 @@
     [signIn] => 
 )
 
+[2023-10-04 08:59:49]DEBUG:Array
+(
+    [login] => avc
+    [password] => 123
+    [signIn] => 
+)
+

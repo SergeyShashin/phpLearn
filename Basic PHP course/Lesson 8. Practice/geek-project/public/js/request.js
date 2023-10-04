@@ -23,4 +23,25 @@ $(document).ready(function () {
 
   });
 
+  $('#btn-input').on('click', function () {
+    $.get(
+      '/ajax.php?action=input',
+      function (response, status) {
+        console.log(status);
+        console.log(response);
+      }
+    );
+
+  });
+  $('#btn-object').on('click', function () {
+    $.get(
+      '/ajax.php?action=object',
+      function (response, status) {
+        console.log(status);
+        console.log(response);
+      }
+    );
+
+  });
+
 })

@@ -18,7 +18,7 @@
       <li>URL: /ajax.php?action=jsonitem</li>
       <li>Method: GET</li>
       <li>Data: {action: 'jsonitem'}</li>
-      <button id='btn-jsonitem'class="btn btn-primary" >Execute</button>
+      <button id='btn-jsonitem' class="btn btn-primary">Execute</button>
     </ul>
   </section>
   <hr>
@@ -28,7 +28,7 @@
       <li>URL: /ajax.php?action=input</li>
       <li>Method: POST</li>
       <li>Data: {message: 'helo-from-ajax!'}</li>
-      <button class="btn btn-primary">Execute</button>
+      <button id='btn-input' class="btn btn-primary">Execute</button>
     </ul>
   </section>
   <section>
@@ -37,7 +37,7 @@
       <li>URL: /ajax.php?action=object</li>
       <li>Method: POST</li>
       <li>Data: {user: {login:'John', password:'123123'}}</li>
-      <button class="btn btn-primary">Execute</button>
+      <button id='btn-object' class="btn btn-primary">Execute</button>
     </ul>
   </section>
 
