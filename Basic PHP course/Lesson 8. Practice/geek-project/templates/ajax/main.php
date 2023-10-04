@@ -42,3 +42,5 @@
   </section>
 
 </div>
+
+<script defer src='/js/request.js'></script>
