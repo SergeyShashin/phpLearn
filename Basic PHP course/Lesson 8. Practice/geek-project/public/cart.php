@@ -38,15 +38,17 @@ function routeAddItem()
 function routeOrder()
 {
   if (isset($_SESSION['cart'])) {
-    $uid = 123; //захардкожено. Порядковый номер заказа. Наверное $uid и $order_id одно и тоже
-    $order_id = 0; // захардкожено. нужно получать как-то последний id в таблице order
+    $uid = 124; //захардкожено. Порядковый номер заказа. Наверное $uid и $order_id одно и тоже
+    $order_id = 2; // захардкожено. нужно получать как-то последний id в таблице order
+    execute("INSERT into `order` (`uid`) values ('{$uid}')");
 
     foreach ($_SESSION['cart'] as $itemId => $quantity) {
       $order_id++;
-      execute("INSERT into `order` ('uid') values ('{$uid}')");
-      execute("INSERT into `order_items` ('poduct_id', 'order_id', 'quantity') values ('{$itemId}', '{$order_id}', '$quantity')");
+      $itemId = 1;
+      execute("INSERT into `order_items` (`poduct_id`, `order_id`, `quantity`) values ({$itemId}, {$order_id}, {$quantity}");
     }
   }
+  header('Location: /');
 }
 
 route();
