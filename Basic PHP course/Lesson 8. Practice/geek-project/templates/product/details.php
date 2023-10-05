@@ -9,3 +9,5 @@
 <p>
   <button class="btn btn-info" id="add-product" data-id="<?= $props['id'] ?>">Добавить в корзину</button>
 </p>
+
+<script src="/js/product.js" defer></script>
