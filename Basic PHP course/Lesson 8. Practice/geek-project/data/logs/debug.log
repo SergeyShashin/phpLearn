@@ -1,49 +1,56 @@
-[2023-10-03 13:01:15]DEBUG:Array
-(
-    [login] => fdsa
-    [password] => 123
-    [signIn] => 
-)
-
-[2023-10-03 18:46:00]DEBUG:Array
-(
-    [login] => admin
-    [password] => 123
-    [signIn] => 
-)
-
-[2023-10-04 08:59:49]DEBUG:Array
-(
-    [login] => avc
-    [password] => 123
-    [signIn] => 
-)
-
-[2023-10-04 13:21:51]DEBUG:Array
-(
-    [login] => qp
-    [password] => 10
-    [signIn] => 
-)
-
-[2023-10-04 13:50:25]DEBUG:Array
+[2023-10-05 20:07:11]DEBUG:Array
 (
     [login] => admin
     [password] => 123123
     [signIn] => 
 )
 
-[2023-10-04 18:56:11]DEBUG:Array
+[2023-10-05 20:29:50]DEBUG:Array
 (
-    [login] => admin
-    [password] => 123123
+    [login] => 1
+    [password] => 1
     [signIn] => 
 )
 
-[2023-10-05 13:54:50]DEBUG:Array
+[2023-10-05 20:37:32]DEBUG:Array
+(
+    [login] => 1
+    [password] => 1
+    [signIn] => 
+)
+
+[2023-10-05 20:37:45]DEBUG:Array
 (
     [login] => admin
-    [password] => 123123
+    [password] => admin
+    [signIn] => 
+)
+
+[2023-10-05 20:40:12]DEBUG:Array
+(
+    [login] => admin
+    [password] => admin
+    [signIn] => 
+)
+
+[2023-10-05 20:47:03]DEBUG:Array
+(
+    [login] => q
+    [password] => 1
+    [signIn] => 
+)
+
+[2023-10-05 20:47:45]DEBUG:Array
+(
+    [login] => q
+    [password] => 1
+    [signIn] => 
+)
+
+[2023-10-05 20:51:10]DEBUG:Array
+(
+    [login] => qwe
+    [password] => 123
     [signIn] => 
 )
 

@@ -18,12 +18,13 @@ function isLoggedUser()
  * @param string $role
  * @return bool
  */
-function userHasRole($role){
-  if($role=='?'){
+function userHasRole($role)
+{
+  if ($role == '?') {
     return !isLoggedUser(); //гость
   }
 
-  if($role=='@'){
+  if ($role == '@') {
     return isLoggedUser(); //авторизован
   }
 
@@ -35,24 +36,31 @@ function userHasRole($role){
  * @param string $login
  * @param bool $remember
  */
-function loginUser($login, $remember = false)
+function loginUser($login, $password, $remember = false)
 {
-  //запоминаем логин в сессии
-  $_SESSION['auth']['login'] = $login;
-
-  //получаем пароль администратора из базы
-  $passwordAdmin = intval(execute("SELECT `password` FROM `users` WHERE login='admin';"));
-
-  //если логин админ и пароль 123123
-  if ($login == 'admin' && $passwordAdmin == 123123) {
-    $_SESSION['auth']['admin'] = true;
+  $sql = execute("SELECT `password` FROM `users` WHERE login='{$login}';");
+  if ($sql) {
+    $hash = $sql;
   }
 
-  //если поставил "запомнить"
-  if ($remember) {
-    $auth = [['login'] => $_SESSION['auth']['login']];
+  if (password_verify($password, $hash)) {
 
-    setCook('auth', json_encode($auth));
+    //запоминаем логин в сессии
+    $_SESSION['auth']['login'] = $login;
+
+    //если логин админ
+    if ($login == 'admin') {
+      $_SESSION['auth']['admin'] = true;
+    }
+
+    //если поставил "запомнить"
+    if ($remember) {
+      $auth = [['login'] => $_SESSION['auth']['login']];
+
+      setCook('auth', json_encode($auth));
+    }
+  } else {
+    return;
   }
 }
 

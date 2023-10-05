@@ -21,14 +21,12 @@ function routeLogin()
     $login = $_POST['login'];
     $password = $_POST['password'];
 
-    if ($login == 'admin' && $password = 123123) {
-      if (isset($_POST['remember'])) {
-        loginUser('admin', true);
-      } else {
-        loginUser('admin');
-      }
-      header('Location: /user.php?action=home');
+    if (isset($_POST['remember'])) {
+      loginUser($login, $password, true);
+    } else {
+      loginUser($login, $password);
     }
+    header('Location: /user.php?action=home');
   }
   echo render('user/signIn');
 }
@@ -60,7 +58,7 @@ function routeRegister()
     if (execute($sql)) {
       //авторизуем
 
-      loginUser($login);
+      loginUser($login, $password, true);
       header('Location: /user.php?action=home');
     }
   }
