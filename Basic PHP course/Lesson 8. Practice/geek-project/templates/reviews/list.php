@@ -7,7 +7,7 @@
         <h5 class="card-title"><?= $review['id'] ?></h5>
         <h6 class="card-subtitle mb-2 text-body-secondary"><?= $review['date'] ?></h6>
         <p class="card-text"><?= $review['content'] ?></p>
-        <a href="reviews.php?action=delete&id=<?= $review['id'] ?>}" class="card-link">Удалить</a>
+          <a href="reviews.php?action=delete&id=<?= $review['id'] ?>}" class="card-link">Удалить</a>
       </div>
     </div>
   <?php endforeach; ?>

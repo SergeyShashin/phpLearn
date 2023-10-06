@@ -54,3 +54,45 @@
     [signIn] => 
 )
 
+[2023-10-06 13:46:46]DEBUG:Array
+(
+    [login] => admin
+    [password] => 123123
+    [signIn] => 
+)
+
+[2023-10-06 13:47:35]DEBUG:Array
+(
+    [login] => admin
+    [password] => 123123
+    [signIn] => 
+)
+
+[2023-10-06 13:48:01]DEBUG:Array
+(
+    [login] => admin
+    [password] => 123123
+    [signIn] => 
+)
+
+[2023-10-06 14:07:05]DEBUG:Array
+(
+    [login] => 
+    [password] => 
+    [signIn] => 
+)
+
+[2023-10-06 14:09:18]DEBUG:Array
+(
+    [login] => 
+    [password] => 
+    [signIn] => 
+)
+
+[2023-10-06 14:09:34]DEBUG:Array
+(
+    [login] => admin
+    [password] => 123123
+    [signIn] => 
+)
+

@@ -8,3 +8,4 @@ $title = 'Главная страница';
   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure unde optio ea ducimus recusandae neque,
   magnam tempore dolore illum maxime obcaecati accusantium eos sapiente nostrum rem perspiciatis veniam eius culpa.
 </p>
+
