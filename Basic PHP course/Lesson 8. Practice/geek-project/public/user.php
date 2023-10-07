@@ -32,7 +32,7 @@ function routeLogin()
   }
 
   echo "Выполнение routeLogin()";
-  echo "Содержимое GET";
+  echo "Содержимое GET"; 
   print_r($_GET);
 
   echo "Содержимое $_POST";
