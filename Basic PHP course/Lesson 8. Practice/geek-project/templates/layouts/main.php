@@ -68,7 +68,7 @@ $items = [
   print_r($_SESSION);
 
   echo "\n Содержимое COOKIE" . "\n";
-  print_r($_COOKIE);
+  var_dump(json_encode($_COOKIE['auth']));
 
   ?>
 

@@ -13,6 +13,8 @@
       <label class="form-check-label" for="exampleCheck1">Remember me</label>
     </div>
     <button type="submit" class="btn btn-primary" name="signIn">Sign In</button>
-    <a href="/user.php?action=register" class="btn btn-primary">Registration</a>
+    <?php if (!isset($_SESSION['auth']['login'])) : ?>
+      <a href="/user.php?action=register" class="btn btn-primary">Registration</a>
+    <?php endif; ?>
   </form>
 </div>

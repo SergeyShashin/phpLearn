@@ -12,24 +12,24 @@ function routeLogin()
 {
   echo render('user/signIn');
 
-  //редирект, если авторизован
-  // if (isLoggedUser()) {
-  //   header('Location: \user.php?action=home');
-  // }
+  // редирект, если авторизован
+  if (isLoggedUser()) {
+    header('Location: \user.php?action=home');
+  }
 
   // //проверка данных из формы
-  // if (isset($_POST['signIn'])) {
-  //   systemLog($_POST, 'debug');
-  //   $login = $_POST['login'];
-  //   $password = $_POST['password'];
+  if (isset($_POST['signIn'])) {
+    systemLog($_POST, 'debug');
+    $login = $_POST['login'];
+    $password = $_POST['password'];
 
-  //   if (isset($_POST['remember'])) {
-  //     loginUser($login, $password, true);
-  //   } else {
-  //     loginUser($login, $password);
-  //   }
-  //   header('Location: /user.php?action=home');
-  // }
+    if (isset($_POST['remember'])) {
+      loginUser($login, $password, true);
+    } else {
+      loginUser($login, $password);
+    }
+    header('Location: /user.php?action=home');
+  }
 
   echo "Выполнение routeLogin()";
   echo "Содержимое GET";
@@ -52,7 +52,13 @@ function routeLogout()
 
 function routeHome()
 {
-  echo render('user/home');
+  $loginForHome = $_SESSION['auth']['login'];
+  var_dump($loginForHome);
+  $sql = "SELECT * from `users` WHERE(`login`= '{$loginForHome}')";
+  $dataUser = getItem($sql);
+
+  // echo render('user/home');
+  echo render('user/home', ['dataUser' => $dataUser]);
 }
 
 function routeRegister()
@@ -95,25 +101,19 @@ function routeRegister()
   //Добавить в БД логин и пароль
   if (isset($_POST['reg_user']) && isset($_POST['login']) && isset($_POST['password']) && strlen($_POST['login']) && strlen($_POST['password'])) {
     $login = $_POST['login'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $sql = "INSERT into `users` (`login`, `password`) values ('{$login}', '{$password}')";
+    $password = $_POST['password'];
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "INSERT into `users` (`login`, `password`) values ('{$login}', '{$passwordHash}')";
 
     if (execute($sql)) {
       //авторизовать пользователя (добавить в сессию, куки информацию, установить роль гость, авторизованный или админ)
-      //Подгрузить страницу user/home
-      // header('Location: /user.php?action=home');
-    };
-
-    $sql = "SELECT password from `users` WHERE(`login`= '{$login}')";
-
-    $getPasswordFromBd = getItem($sql);
-
-    $passwordFromBd = $getPasswordFromBd['password'];
-
-    var_dump(password_verify('123', $passwordFromBd) );
-
+      loginUser($login, $password, true);
+      // Подгрузить страницу user/home
+      header('Location: /user.php?action=home');
+    } else {
+      header('Location: site\error');
+    }
   }
-
 }
 
 //Обрабатывает редактирование формы на странице user/home

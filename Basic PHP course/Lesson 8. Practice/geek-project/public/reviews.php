@@ -38,7 +38,7 @@ function routeAdd()
 //удалить
 function routeDelete()
 {
-  if (!isAdmin()) {
+  if (!isLoggedUser()) {
     header('Location: \reviews.php');
   } else {
     $id = 0;

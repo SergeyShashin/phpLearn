@@ -38,20 +38,22 @@ function userHasRole($role)
  */
 function loginUser($login, $password, $remember = false)
 {
-  $sql = execute("SELECT `password` FROM `users` WHERE login='{$login}';");
-  if ($sql) {
-    $hash = $sql;
-  }
+  $sql = "SELECT password from `users` WHERE(`login`= '{$login}')";
+  $getPasswordFromBd = getItem($sql);
+  $passwordFromBd = $getPasswordFromBd['password'];
 
-  if (password_verify($password, $hash)) {
+  var_dump(password_verify($password, $passwordFromBd));
+
+  //проверка на соответсвие введенного пароля паролю в БД
+  if (password_verify($password, $passwordFromBd)) {
 
     //запоминаем логин в сессии
     $_SESSION['auth']['login'] = $login;
 
     //если логин админ
-    if ($login == 'admin') {
-      $_SESSION['auth']['admin'] = true;
-    }
+    // if ($login == 'admin') {
+    //   $_SESSION['auth']['admin'] = true;
+    // }
 
     //если поставил "запомнить"
     if ($remember) {
@@ -77,10 +79,10 @@ function logoutUser()
  * проверка на администратора
  * @return bool
  */
-function isAdmin()
-{
-  return isset($_SESSION['auth']['admin']) && $_SESSION['auth']['admin'];
-}
+// function isAdmin()
+// {
+//   return isset($_SESSION['auth']['admin']) && $_SESSION['auth']['admin'];
+// }
 
 /**
  * Попытка загрузки авторизации через COOKIES.
@@ -89,10 +91,14 @@ function autoLogin()
 {
   if (isset($_COOKIE['auth'])) {
     $auth = json_decode($_COOKIE['auth'], true);
+    $login = $auth['login'];
 
-    loginUser($auth['login'], true);
+    $sql = "SELECT password from `users` WHERE(`login`= '{$login}')";
+    $getPasswordFromBd = getItem($sql);
 
-    welcomeUser($auth['login']);
+    loginUser($login, $getPasswordFromBd, true);
+
+    // welcomeUser($auth['login']);
   }
 }
 
