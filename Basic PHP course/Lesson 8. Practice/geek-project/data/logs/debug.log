@@ -96,3 +96,10 @@
     [signIn] => 
 )
 
+[2023-10-07 11:48:13]DEBUG:Array
+(
+    [login] => 123
+    [password] => 123
+    [signIn] => 
+)
+
