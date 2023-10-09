@@ -44,7 +44,7 @@ function loginUser($login, $password, $remember = false)
 
   var_dump(password_verify($password, $passwordFromBd));
 
-  //проверка на соответсвие введенного пароля паролю в БД
+  //проверка на соответсвие введенного пароля с паролем в БД
   if (password_verify($password, $passwordFromBd)) {
 
     //запоминаем логин в сессии
@@ -62,7 +62,7 @@ function loginUser($login, $password, $remember = false)
       setCook('auth', json_encode($auth));
     }
   } else {
-    return;
+    return false;
   }
 }
 

@@ -28,11 +28,18 @@ function routeLogin()
     } else {
       loginUser($login, $password);
     }
-    header('Location: /user.php?action=home');
+
+    if (isLoggedUser()) {
+      header('Location: \user.php?action=home');
+    } else {
+      echo 'Логин или пароль введены с ошибкой.';
+    }
+    
+    // header('Location: /user.php?action=home');
   }
 
   echo "Выполнение routeLogin()";
-  echo "Содержимое GET"; 
+  echo "Содержимое GET";
   print_r($_GET);
 
   echo "Содержимое $_POST";
