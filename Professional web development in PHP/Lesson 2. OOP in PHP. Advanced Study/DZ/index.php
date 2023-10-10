@@ -1,9 +1,9 @@
 <?php
 
-require 'Product.php';
-require 'ProductWeight.php';
-require 'ProductPiece.php';
-require 'ProductDigit.php';
+require_once 'Product.php';
+require_once 'ProductWeight.php';
+require_once 'ProductPiece.php';
+require_once 'ProductDigit.php';
 
 // 1. Создать структуру классов ведения товарной номенклатуры.
 // а) Есть абстрактный товар.
@@ -17,6 +17,7 @@ require 'ProductDigit.php';
 
 $newWeightProduct = new ProductWeight('весовой', 10, 20);
 $newPieceProduct = new ProductPiece('штучный', 1, 100);
-$newPieceProduct = new ProductPiece('цифровой', 1, $newWeightProduct->$priceProduct/2);
+$priceForDigitProduct =  $newWeightProduct->getPriseProduct()/2;
+$newPieceDigit = new ProductDigit('цифровой', 1, $priceForDigitProduct);
 
-echo $newWeightProduct->getSumProduct();
+echo $newPieceDigit->getSumProduct();

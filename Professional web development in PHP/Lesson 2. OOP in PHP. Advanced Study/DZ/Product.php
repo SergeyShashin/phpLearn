@@ -32,6 +32,10 @@ abstract class Product
     $this->priceProduct = $priceProduct;
   }
 
+  public function getPriseProduct()
+  {
+    return $this->priceProduct;
+  }
   public function getSumProduct()
   {
     return $this->priceProduct * $this->quantityProduct;

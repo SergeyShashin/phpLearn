@@ -1,12 +1,12 @@
 <?php
 
-require 'Product.php';
+require_once 'Product.php';
 
 /**
  * Штучный товар
  *  У штучного товара обычная стоимость
  */
-abstract class ProductPiece extends Product
+class ProductPiece extends Product
 {
   
 }
