@@ -16,5 +16,7 @@ require 'ProductDigit.php';
 // 2. *Реализовать паттерн Singleton при помощи traits.
 
 $newWeightProduct = new ProductWeight('весовой', 10, 20);
+$newPieceProduct = new ProductPiece('штучный', 1, 100);
+$newPieceProduct = new ProductPiece('цифровой', 1, $newWeightProduct->$priceProduct/2);
 
 echo $newWeightProduct->getSumProduct();
