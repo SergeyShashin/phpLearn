@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * a) абстрактный класс
  */
 abstract class Product
 {
@@ -22,14 +22,18 @@ abstract class Product
   public $nameCategoryProduct;
   public $typeProduct; //запас, услуга
 
-  function __construct(string $nameProduct, $quantityProduct)
+  /**
+   * 
+   */
+  function __construct(string $nameProduct, $quantityProduct, $priceProduct)
   {
     $this->nameProduct = $nameProduct;
     $this->quantityProduct = $quantityProduct;
+    $this->priceProduct = $priceProduct;
   }
 
-  function getSumProduct()
+  public function getSumProduct()
   {
-    return $this->nameProduct * $this->quantityProduct;
+    return $this->priceProduct * $this->quantityProduct;
   }
 }
