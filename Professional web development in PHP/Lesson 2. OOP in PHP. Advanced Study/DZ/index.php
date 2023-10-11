@@ -5,6 +5,8 @@ require_once 'ProductWeight.php';
 require_once 'ProductPiece.php';
 require_once 'ProductDigit.php';
 
+require_once 'MyClass.php';
+
 // 1. Создать структуру классов ведения товарной номенклатуры.
 // а) Есть абстрактный товар.
 // б) Есть цифровой товар, штучный физический товар и товар на вес.
@@ -17,7 +19,17 @@ require_once 'ProductDigit.php';
 
 $newWeightProduct = new ProductWeight('весовой', 10, 20);
 $newPieceProduct = new ProductPiece('штучный', 1, 100);
-$priceForDigitProduct =  $newWeightProduct->getPriseProduct()/2;
+$priceForDigitProduct =  $newWeightProduct->getPriseProduct() / 2;
 $newPieceDigit = new ProductDigit('цифровой', 1, $priceForDigitProduct);
 
-echo $newPieceDigit->getSumProduct();
+echo $newPieceDigit->getSumProduct(), PHP_EOL;
+
+MyClass::getInstance()->say();
+MyClass::getInstance()->setData([
+  'title' => 'Не очень простое название для страницы',
+  'content' => 'Текст страницы'
+]);
+
+echo "<pre>";
+print_r(MyClass::getInstance()->getPreparedData());
+echo "<pre>";
