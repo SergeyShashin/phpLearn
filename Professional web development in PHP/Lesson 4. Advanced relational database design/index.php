@@ -6,11 +6,12 @@
 $connection = new PDO(
   'mysql:host=127.0.0.1;dbname=geek_project',
   'root',
-  'rewq54321');
+  'rewq54321'
+);
 
-$stmt = $connection->prepare("SELECT * FROM `departments`");
-// $stmt = $connection->prepare("SELECT * FROM `departments` WHERE shortName=':name'");
-// $name = 'FD2';
-// $stmt->bindParam(':name', $name);
+$stmt = $connection->prepare('SELECT * FROM departments WHERE shortName=:name');
+$name = 'FD2';
+$stmt->bindParam(':name', $name);
 
-var_dump($stmt->execute());
+$stmt->execute();
+var_dump($stmt->fetchObject());
