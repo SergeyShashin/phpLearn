@@ -1,24 +1,21 @@
 <?php
-$countProducts = count($prods);
-$i = 0;
-$limitOutputProducts = 25;
-if (isset($_GET['more'])) {
-  $limitOutputProducts += 25;
-  $i += 25;
-}
-
+  $countProducts = count($prods);
+  echo "Мы выводим товары из категории." . $_GET['id'];
 ?>
+
 <h2>Товары</h2>
 
 <ul>
-  <em><?= $countProducts ?></em>
-  <?php for (; $i < $limitOutputProducts; $i++) : ?>
+  <em><?= "Всего товаров " . $countProducts ?></em>
+  <?php foreach ($prods as $product) : ?>
     <li>
-      <a href="/product.php?id=<?= $prods[$i]['id'] ?>">
-        <?= $i . ' ' . $prods[$i]['name'] ?>
+      <a href="/product.php?id=<?= $product['id'] ?>">
+        <?= $i . ' ' . $product['name'] ?>
       </a>
     </li>
-  <?php endfor; ?>
+  <?php endforeach; ?>
 </ul>
 
-<button name="more" class="btn btn-primary">Ещё</button>
+<button id='btn-get-more' class="btn btn-primary">Ещё</button>
+
+<script src="/js/category.js" defer></script>

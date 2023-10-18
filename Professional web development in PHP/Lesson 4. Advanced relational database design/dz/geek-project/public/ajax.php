@@ -28,4 +28,5 @@ function routeInput(){
 function routeObject(){
   renderJson($_POST['user']);
 }
+
 route();
