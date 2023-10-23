@@ -7,10 +7,10 @@
  */
 
 /**
- * Logging settings
+ * Application route settings
  */
 return [
-  'log' => [
+  'routes' => [
     //settings
   ],
 
