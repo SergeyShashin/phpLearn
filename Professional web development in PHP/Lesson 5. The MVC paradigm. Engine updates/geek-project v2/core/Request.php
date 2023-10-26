@@ -32,7 +32,7 @@ class Request
    * @param string|null $key
    * @param null $value
    * 
-   * @return bool
+   * @return bool|array
    */
   public function post($key = null, $value = null)
   {

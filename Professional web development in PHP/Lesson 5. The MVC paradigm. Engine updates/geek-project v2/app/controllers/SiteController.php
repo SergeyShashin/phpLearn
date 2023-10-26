@@ -24,13 +24,11 @@ class SiteController extends Controller
     $user = new User(['login' => 'admin']);
 
     if ($this->request->isPost()) {
-      $user->load($this->request->post());
-    }
-
-    if ($user->login == 'admin') {
-      //ок
-    } else {
-      $user->addError('login', 'Неверный логин');
+      if ($user->load($this->request->post())) {
+        $user->save();
+      } else {
+        echo 'NOT LOADED';
+      }
     }
 
 

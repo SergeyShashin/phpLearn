@@ -8,13 +8,14 @@
 
 namespace core;
 
-use core\base\ActiveRecord;
+use core\base\Controller;
 use core\base\View;
 use core\traits\Singletone;
-use core\base\Controller;
+use core\base\ActiveRecord;
 use Doctrine\DBALL\Configuration;
 use Doctrine\DBALL\Connection;
 use Doctrine\DBALL\DriverManager;
+use LDAP\Result;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 
@@ -69,11 +70,37 @@ class Application
         $router->params
       );
 
-      
+
       //возвращаем на страницу
       echo $response;
     } else {
       throw new \Exception('invalid controller');
     }
   }
+
+  private function getRequest()
+  {
+    return new Request();
+  }
+
+  /**
+   * Формирование объекта Doctrine
+   * @return Connection
+   * @throws \Doctrine\DBAL\DBALException
+   */
+  private function getConnection()
+  {
+    $doctrineConfig = new Configuration();
+    $connection = DriverManager::getConnection($this->_config['database'], $doctrineConfig);
+    return $connection;
+  }
+
+  /**
+   * Формирование объекта Router
+   * @return Router
+   */
+  private function getRouter(){
+    return new Router($this->request->path, $this->_config['routes']);
+  }
+
 }
