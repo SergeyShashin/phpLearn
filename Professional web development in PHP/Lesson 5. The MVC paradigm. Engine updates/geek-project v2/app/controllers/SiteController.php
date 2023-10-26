@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use core\base\Controller;
 
 /**
@@ -20,11 +21,19 @@ class SiteController extends Controller
   public function index()
   {
 
+    $user = new User(['login' => 'admin']);
+
     if ($this->request->isPost()) {
-      $user = $this->request->post('User');
-      var_dump($user);
+      $user->load($this->request->post());
     }
 
-    return $this->render('index');
+    if ($user->login == 'admin') {
+      //ок
+    } else {
+      $user->addError('login', 'Неверный логин');
+    }
+
+
+    return $this->render('index', ['user' => $user]);
   }
 }

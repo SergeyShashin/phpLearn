@@ -3,6 +3,10 @@
 <form action="post">
   <p>
     <input type="text" placeholder="login" name="User[login]">
+    {% if user.errors.login %}
+    <small style="color:red;">{{ user.errors.login }}</small>
+    {% endif %}
+
   </p>
   <p>
     <input type="password" placeholder="pasword" name="User[password]">
