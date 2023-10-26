@@ -30,7 +30,7 @@ abstract class ActiveRecord extends Model
    * 
    * @param $id
    * 
-   * @return self|bool
+   * @return mixed
    *  
    */
   public static function findById($id)

@@ -15,6 +15,8 @@ return [
   'routes' => [
     //settings
     '/'=>[SiteController::class, 'index'],
+    'pages'=>[PageController::class, 'index'],
+    'page/new'=>[PageController::class, 'add'],
   ],
 
 ];
