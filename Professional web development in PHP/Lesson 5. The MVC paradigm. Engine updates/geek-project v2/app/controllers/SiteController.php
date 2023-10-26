@@ -31,7 +31,13 @@ class SiteController extends Controller
       }
     }
 
+    $regUser = User::all(
 
+      User::find()
+      ->where('id = :id')
+      ->setParametr(':id', 2);
+    ) 
+    
     return $this->render('index', ['user' => $user]);
   }
 }

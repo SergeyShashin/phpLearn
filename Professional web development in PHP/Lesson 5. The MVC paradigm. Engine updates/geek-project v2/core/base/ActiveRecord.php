@@ -162,12 +162,12 @@ abstract class ActiveRecord extends Model
    */
   private function isNewRecord()
   {
-    return !isset($this->{$this->primaryKey});
+    return !isset($this->{self::$primaryKey});
   }
 
   private function getPrimaryKeyValue()
   {
-    return ($this->isNewRecord()) ? null : $this->{$this->primaryKey};
+    return ($this->isNewRecord()) ? null : $this->{self::$primaryKey};
   }
 
   /**
@@ -182,7 +182,7 @@ abstract class ActiveRecord extends Model
 
       return $connection->delete(
         self::tableName(),
-        [$this->primaryKey => $this->getPrimaryKeyValue()]
+        [self::$primaryKey => $this->getPrimaryKeyValue()]
       );
     }
 
