@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by ...........
  * ......................
@@ -20,10 +19,10 @@ use core\Application;
 use core\Request;
 
 $configurations = array_merge(
-  require '/../config/app.php',
-  require '/../config/database.php',
-  require '/../config/log.php',
-  require '/../config/routes.php',
+  require __DIR__ . '/../config/app.php',
+  require __DIR__ . '/../config/database.php',
+  require __DIR__ . '/../config/log.php',
+  require __DIR__ . '/../config/routes.php',
 );
 
 ini_set('display_errors', 'on');

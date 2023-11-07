@@ -11,6 +11,7 @@
  */
 return [
   'log' => [
+    'path'=>'/runtime/logs',
     //settings
   ],
 

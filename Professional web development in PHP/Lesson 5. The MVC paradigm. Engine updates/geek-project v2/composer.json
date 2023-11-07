@@ -1,22 +1,16 @@
 {
-  "name": "/geek-project v2",
-  "description": "Geekbrains project PHP level 2 - example MVC app",
-  "type": "project",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Artem Manchenkov",
-      "email": "artyom@manchenkoff.me"
+    "name": "tdgbi/geekproject",
+    "description": "GB PHP V2",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/",
+            "core\\": "core/"
+        }
+    },
+    "require": {
+        "twig/twig": "^3.7",
+        "doctrine/dbal": "^3.7"
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "app\\": "app/",
-      "core\\": "core/"
-    }
-  },
-  "requare": {
-    "twig/twig": "^2.0",
-    "doctrine/dbal": "^2.8"
-  }
 }

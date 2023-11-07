@@ -55,23 +55,23 @@ class Application
     $this->request = $this->getRequest();
     $this->connection = $this->getConnection();
 
-    $this->router = $this->getRouter();
-    $this->renderer = $this->getRenderer();
+    $router = $this->getRouter();
+    $renderer = $this->getRenderer();
 
     //если контроллер найден
     if ($router->controller) {
-      //создаём новый экземпляр и вызываем action
+      // создаём новый экземпляр и вызываем action
       $controllerName = $router->controller;
       $this->controller = new $controllerName($this->request, $renderer);
 
-      //сохраняем, полученный результат от контроллера
+      // сохраняем, полученный результат от контроллера
       $response = $this->controller->runAction(
         $router->action,
         $router->params
       );
 
 
-      //возвращаем на страницу
+      // возвращаем на страницу
       echo $response;
     } else {
       throw new \Exception('invalid controller');
@@ -83,6 +83,16 @@ class Application
     return new Request();
   }
 
+  private function getRenderer()
+  {
+    $teamplatesDirectory = $this->_config['view']['teamplates'];
+    $loader = new Twig_Loader_Filesystem($teamplatesDirectory);
+    $twig = new Twig_Environment($loader, $this->_config['view']['params']);
+    $view = new View($twig, $this->_config['app']);
+
+    return $view;
+  }
+
   /**
    * Формирование объекта Doctrine
    * @return Connection
@@ -90,17 +100,17 @@ class Application
    */
   private function getConnection()
   {
-    $doctrineConfig = new Configuration();
-    $connection = DriverManager::getConnection($this->_config['database'], $doctrineConfig);
-    return $connection;
+    // $doctrineConfig = new Configuration();
+    // $connection = DriverManager::getConnection($this->_config['database'], $doctrineConfig);
+    // return $connection;
   }
 
   /**
    * Формирование объекта Router
    * @return Router
    */
-  private function getRouter(){
+  private function getRouter()
+  {
     return new Router($this->request->path, $this->_config['routes']);
   }
-
 }
