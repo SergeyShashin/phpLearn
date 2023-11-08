@@ -70,7 +70,6 @@ class Application
         $router->params
       );
 
-
       // возвращаем на страницу
       echo $response;
     } else {

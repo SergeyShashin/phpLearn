@@ -9,6 +9,7 @@
 namespace core\base;
 
 use core\Request;
+use Exception;
 
 /**
  * Управляющий класс Controller, соединяющий модель и представление
@@ -69,5 +70,24 @@ abstract class Controller extends BaseObject
     header('Content-type: application/json');
 
     return json_encode($data, JSON_PRETTY_PRINT);
+  }
+
+  /**
+   * Вывод запрошенного метода в маршруте
+   * 
+   * @param string $method
+   * @param array $params
+   * 
+   * @return mixed
+   * @throws \Exeption  
+   */
+  public function runAction($method, $params)
+  {
+    if (!method_exists($this, $method)) {
+      //распаковываем аргументы метода из массива
+      return $this->{$method}(...$params);
+    } else {
+      throw new \Exception('Invalid action');
+    }
   }
 }
