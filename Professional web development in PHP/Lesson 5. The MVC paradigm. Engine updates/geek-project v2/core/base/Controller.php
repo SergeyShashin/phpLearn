@@ -90,4 +90,22 @@ abstract class Controller extends BaseObject
       throw new \Exception('Invalid action');
     }
   }
+
+
+  /**
+   * Генерация шаблона Twig по заданному пути и данным
+   * @param string $view
+   * @param array $data
+   * 
+   * @return string
+   * 
+   */
+  private function view($view, $data = [])
+  {
+    try {
+      $view = "/pages/{$this->name}/{$view}.twig";
+    } catch (Exception $exception) {
+      echo $exception->getMessage();
+    }
+  }
 }

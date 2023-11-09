@@ -17,7 +17,7 @@ use Doctrine\DBALL\Connection;
 use Doctrine\DBALL\DriverManager;
 use LDAP\Result;
 use Twig_Environment;
-use FilesystemLoader;
+use Twig_Loader_Filesystem;
 
 /**
  * Класс приложения, который содержит всю логику
@@ -44,7 +44,7 @@ class Application
    * 
    * @param array $configuration
    * 
-   * @throws \Exeption 
+   * @throws \Exception 
    */
   public function init($configuration)
   {
@@ -85,7 +85,7 @@ class Application
   private function getRenderer()
   {
     $teamplatesDirectory = $this->_config['view']['teamplates'];
-    $loader = new FilesystemLoader($teamplatesDirectory);
+    $loader = new Twig_Loader_Filesystem($teamplatesDirectory);
     $twig = new Twig_Environment($loader, $this->_config['view']['params']);
     $view = new View($twig, $this->_config['app']);
 
