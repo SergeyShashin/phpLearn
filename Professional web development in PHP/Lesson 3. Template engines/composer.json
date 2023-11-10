@@ -1,0 +1,9 @@
+{
+    "name": "php/template_engines",
+    "description": "Getting to know twig.",
+    "type": "project",
+    "require": {
+        "twig/twig": "^3.7"
+    },
+    "license": "MIT"
+}
