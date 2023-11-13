@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by ...........
  * ......................
@@ -13,10 +14,12 @@
  * - инициализация приложения 
  */
 
+
 require __DIR__ . '/../vendor/autoload.php';
 
-use core\Application;
-use core\Request;
+use Core\Application;
+use Core\Request;
+use Doctrine\DBAL\Configuration;
 
 $configurations = array_merge(
   require __DIR__ . '/../config/app.php',

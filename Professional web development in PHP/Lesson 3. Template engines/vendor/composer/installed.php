@@ -1,24 +1,15 @@
 <?php return array(
     'root' => array(
-        'name' => 'php/template_engines',
+        'name' => 'tdgbi/template_engines',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '6fe1cb698ccdd1798171e06925f337560aec4fbd',
+        'reference' => '09f1c045cf04bcf6d06e2510a53b666d08e237ff',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'php/template_engines' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '6fe1cb698ccdd1798171e06925f337560aec4fbd',
-            'type' => 'project',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'symfony/polyfill-ctype' => array(
             'pretty_version' => 'v1.28.0',
             'version' => '1.28.0.0',
@@ -34,6 +25,15 @@
             'reference' => '42292d99c55abe617799667f454222c54c60e229',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'tdgbi/template_engines' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '09f1c045cf04bcf6d06e2510a53b666d08e237ff',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

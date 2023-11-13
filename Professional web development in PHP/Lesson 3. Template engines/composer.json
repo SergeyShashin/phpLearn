@@ -1,14 +1,14 @@
 {
-    "name": "php/template_engines",
-    "description": "Getting to know twig.",
+    "name": "tdgbi/template_engines",
+    "description": "Lesson 3. Template engines",
     "type": "project",
     "require": {
         "twig/twig": "^3.7"
     },
-    "license": "MIT",
     "autoload": {
         "psr-4": {
             "App\\": "./app"
         }
-    }
+    },
+    "license": "MIT"
 }

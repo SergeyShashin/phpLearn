@@ -6,9 +6,9 @@
  * ......................
  */
 
-namespace core\base;
+namespace Core\Base;
 
-use core\Application;
+use Core\Application;
 use Doctrine\DBALL\FetchMode;
 use Doctrine\DBALL\Querry\QuerryBuilder;
 

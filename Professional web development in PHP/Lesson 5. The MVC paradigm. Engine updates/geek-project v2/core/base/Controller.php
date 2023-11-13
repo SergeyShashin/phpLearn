@@ -6,9 +6,9 @@
  * ......................
  */
 
-namespace core\base;
+namespace Core\Base;
 
-use core\Request;
+use Core\Request;
 use Exception;
 
 /**

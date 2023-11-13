@@ -5,8 +5,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "app\\": "app/",
-            "core\\": "core/"
+            "App\\": "./app",
+            "Core\\": "./core"
         }
     },
     "require": {

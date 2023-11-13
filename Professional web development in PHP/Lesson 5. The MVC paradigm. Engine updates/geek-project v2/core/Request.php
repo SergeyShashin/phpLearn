@@ -6,9 +6,9 @@
  * ......................
  */
 
-namespace core;
+namespace Core;
 
-use core\base\BaseObject;
+use Core\Base\BaseObject;
 
 /**
  * Предназначен для обработки запросов к приложению

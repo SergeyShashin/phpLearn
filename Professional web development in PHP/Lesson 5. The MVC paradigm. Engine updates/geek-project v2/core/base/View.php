@@ -6,7 +6,7 @@
  * ......................
  */
 
-namespace core\base;
+namespace Core\Base;
 
 use Twig_Environment;
 

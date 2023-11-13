@@ -12,14 +12,6 @@ class ComposerStaticInit9f06c846f16a354edd61de68a9b3e196
     );
 
     public static $prefixLengthsPsr4 = array (
-        'c' => 
-        array (
-            'core\\' => 5,
-        ),
-        'a' => 
-        array (
-            'app\\' => 4,
-        ),
         'T' => 
         array (
             'Twig\\' => 5,
@@ -41,17 +33,17 @@ class ComposerStaticInit9f06c846f16a354edd61de68a9b3e196
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\' => 16,
         ),
+        'C' => 
+        array (
+            'Core\\' => 5,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'core\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/core',
-        ),
-        'app\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app',
-        ),
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
@@ -87,6 +79,14 @@ class ComposerStaticInit9f06c846f16a354edd61de68a9b3e196
         'Doctrine\\Common\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/event-manager/src',
+        ),
+        'Core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/core',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 

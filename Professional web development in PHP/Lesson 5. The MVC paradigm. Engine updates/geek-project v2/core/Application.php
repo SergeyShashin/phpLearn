@@ -6,12 +6,12 @@
  * ......................
  */
 
-namespace core;
+namespace Core;
 
-use core\base\Controller;
-use core\base\View;
-use core\traits\Singletone;
-use core\base\ActiveRecord;
+use Core\Base\Controller;
+use Core\Base\View;
+use Core\Traits\Singletone;
+use Core\Base\ActiveRecord;
 use Doctrine\DBALL\Configuration;
 use Doctrine\DBALL\Connection;
 use Doctrine\DBALL\DriverManager;
