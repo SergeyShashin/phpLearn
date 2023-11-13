@@ -17,11 +17,11 @@ return [
   ],
 
   'view'=>[
-    'teamplates'=>dirname(__DIR__).'app/views',
+    'teamplates'=>dirname(__DIR__).'\app\views',
   ],
 
   'params'=>[
-    'cashe'=>dirname(__DIR__).'runtime/cache',
+    'cashe'=>dirname(__DIR__).'\runtime\cache',
   ],
 
   // 'container' => [

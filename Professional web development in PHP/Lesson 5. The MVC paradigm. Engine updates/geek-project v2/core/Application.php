@@ -16,8 +16,8 @@ use Doctrine\DBALL\Configuration;
 use Doctrine\DBALL\Connection;
 use Doctrine\DBALL\DriverManager;
 use LDAP\Result;
-use Twig_Environment;
-use Twig_Loader_Filesystem;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 /**
  * Класс приложения, который содержит всю логику
@@ -85,8 +85,8 @@ class Application
   private function getRenderer()
   {
     $teamplatesDirectory = $this->_config['view']['teamplates'];
-    $loader = new Twig_Loader_Filesystem($teamplatesDirectory);
-    $twig = new Twig_Environment($loader, $this->_config['view']['params']);
+    $loader = new FilesystemLoader($teamplatesDirectory);
+    $twig = new Environment($loader, $this->_config['view']['params']);
     $view = new View($twig, $this->_config['app']);
 
     return $view;
