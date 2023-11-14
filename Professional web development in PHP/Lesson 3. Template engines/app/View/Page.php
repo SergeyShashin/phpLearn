@@ -5,6 +5,7 @@ namespace App\View;
 use Twig\Loader\FilesystemLoader;
 use Twig_Loader_Filesystem;
 use Twig\Environment;
+use Twig\Extension\DebugExtension;
 
 class Page
 {
@@ -13,10 +14,10 @@ class Page
 
   public function __construct($template)
   {
-    // $loader = new Twig_Loader_Filesystem('views');
     $loader = new FilesystemLoader('views');    
 
-    $this->twig = new Environment($loader);
+    $this->twig = new Environment($loader, ['debug'=> true]);
+    $this->twig->addExtension(new DebugExtension);
 
     $this->template = $template . '.twig';
   }

@@ -1,12 +1,20 @@
 <h2>Home</h2>
 
 <p>
-  <strong style="color: red">Color text</strong>
-  <strong style="color: green">Color text</strong>
+	{% if error %}
+		<strong style="color: red">Color text</strong>
+	{% else %}
+		<strong style="color: green">Color text</strong>
+	{% endif %}
 </p>
 
 <h3>Users</h3>
+<h4>{{currentDate}}</h4>
 
 <ul>
-  <li>user</li>
+	{% for user in users %}
+		<li>{{user.login}}</li>
+	{% endfor %}
 </ul>
+
+{{ dump(users) }}
