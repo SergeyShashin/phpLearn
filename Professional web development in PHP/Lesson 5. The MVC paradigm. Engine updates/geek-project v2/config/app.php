@@ -18,11 +18,11 @@ return [
 
   'view'=>[
     'teamplates'=>dirname(__DIR__).'\app\views',
+    'params'=>[
+      // 'cashe'=>dirname(__DIR__).'\runtime\cache',
+    ],
   ],
 
-  'params'=>[
-    'cashe'=>dirname(__DIR__).'\runtime\cache',
-  ],
 
   // 'container' => [
     //aliases

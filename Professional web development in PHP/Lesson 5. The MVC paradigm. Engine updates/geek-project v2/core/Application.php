@@ -56,6 +56,7 @@ class Application
     $this->connection = $this->getConnection();
 
     $router = $this->getRouter();
+    
     $renderer = $this->getRenderer();
 
     //если контроллер найден

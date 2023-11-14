@@ -6,9 +6,9 @@
  * ......................
  */
 
-namespace core;
+namespace Core;
 
-use core\base\BaseObject;
+use Core\Base\BaseObject;
 
 /**
  * Предназначен для автоматизации маршрутизации приложения
@@ -47,8 +47,10 @@ class Router extends BaseObject
       $path = '/';
     }
 
+
     //перебираем все правила валидации до нахождения совпадения
     foreach ($this->_rules as $rule => $route) {
+          
       //меняем в правиле placeholder'ы на патерны правила
       $pattern = preg_replace("/{[\w]+}/", "(/[\w]+)", $rule);
       $pattern = "~^" . $pattern . "$~";

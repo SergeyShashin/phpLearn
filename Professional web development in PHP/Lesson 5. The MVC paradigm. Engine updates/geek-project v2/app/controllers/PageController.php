@@ -6,10 +6,10 @@
  * ......................
  */
 
-namespace app\controllers;
+namespace App\Controllers;
 
-use app\models\Page;
-use core\base\Controller;
+use App\Models\Page;
+use Core\Base\Controller;
 
 /**
  * 
