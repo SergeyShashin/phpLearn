@@ -21,23 +21,23 @@ class SiteController extends Controller
   public function index()
   {
 
-    $user = new User(['login' => 'admin']);
+    echo ':)';
 
-    if ($this->request->isPost()) {
-      if ($user->load($this->request->post())) {
-        $user->save();
-      } else {
-        echo 'NOT LOADED';
-      }
-    }
+    // $user = new User(['login' => 'admin']);
 
-    $regUser = User::all(
+    // if ($this->request->isPost()) {
+    //   if ($user->load($this->request->post())) {
+    //     $user->save();
+    //   } else {
+    //     echo 'NOT LOADED';
+    //   }
+    // }
 
-      User::find()
-      ->where('id = :id')
-      ->setParametr(':id', 2);
-    ) 
+    // $regUser = User::all(
+
+    //   User::find()->where('id = :id')->setParametr(':id', 2);
+    // ) 
     
-    return $this->render('index', ['user' => $user]);
+    // return $this->render('index', ['user' => $user]);
   }
 }

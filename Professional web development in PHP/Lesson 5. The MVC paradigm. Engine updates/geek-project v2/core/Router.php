@@ -43,16 +43,15 @@ class Router extends BaseObject
    */
   public function handle($path)
   {
-    if ($path = '') {
-      $path = '/';
+    if (!$path) {
+      $path = "/";
     }
-
 
     //перебираем все правила валидации до нахождения совпадения
     foreach ($this->_rules as $rule => $route) {
-          
+
       //меняем в правиле placeholder'ы на патерны правила
-      $pattern = preg_replace("/{[\w]+}/", "(/[\w]+)", $rule);
+      $pattern = preg_replace("/{[\w]+}/", "([\w]+)", $rule);
       $pattern = "~^" . $pattern . "$~";
 
       //если найдено точное совпадение
@@ -87,10 +86,10 @@ class Router extends BaseObject
     $matches = [];
     $params = [];
 
-    preg_match_all("/{[/w]+}/", $path, $matches, PREG_SET_ORDER);
+    preg_match_all("/{[\w]+}/", $path, $matches, PREG_SET_ORDER);
 
     foreach ($matches as $match) {
-      $params[] = preg_replace("/[/w]+/", '', $match[0]);
+      $params[] = preg_replace("/[\w]+/", '', $match[0]);
     }
 
     return $params;
